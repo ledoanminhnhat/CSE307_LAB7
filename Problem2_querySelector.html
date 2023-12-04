@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Modifications</title>
+    <style>
+        
+        .example {
+            background-color: lightblue; 
+        }
+
+        a[target] {
+            border: 2px solid bl; 
+        }
+
+        div > p:first-child {
+            font-size: 20px; 
+            color: green;    
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Modifications Example</h1>
+
+    <div>
+        
+        <p class="example">This is the first paragraph with class "example".</p>
+
+        
+        <p >This is another paragraph with class "example".</p>
+    </div>
+
+    
+    <a href="https://www.example.com" target="_blank">Link with target attribute</a>
+
+    
+    <button onclick="makeChanges()">Change</button>
+
+    <script>
+        function makeChanges() {
+            
+    var firstline = document.querySelector('.example');
+
+            
+        var link = document.querySelector('a[target]');
+
+            
+         var divFirstChildParagraph = document.querySelector('div > p:first-child');
+
+            
+         firstline.style.backgroundColor = 'yellow';
+            firstline.style.color = 'green';
+            link.style.border = '2px solid red';
+            link.style.color = 'blue';
+            
+        }
+    </script>
+</body>
+</html>

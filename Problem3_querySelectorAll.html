@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Modifications</title>
+        <style>
+        
+        .example {
+            background-color: lightblue; 
+            border: 1px solid black;
+            height: 50px;
+            width: 70%;
+            color: black;
+            font-size: 20px;
+
+        }
+        .example1 {
+            background-color: lightblue; 
+            border: 1px solid black;
+            height: 50px;
+            width: 70%;
+            color: black;
+            font-size: 20px;
+
+        }
+
+        a[target] {
+            border: 2px solid bl; 
+        }
+        a[target1] {
+            border: 2px solid bl; 
+        }
+
+        div > p:first-child {
+            font-size: 20px; 
+               
+        }
+
+       .title{
+            color: darkmagenta;
+        }
+        
+        
+    </style>
+    </head>
+    <body>
+        <h1>HTML Modifications Example</h1>
+
+        <div>
+
+            <p class="example">This is the first paragraph with class "example".</p>
+
+            <p class="example1">Another paragraph with class "example".</p>
+        </div>
+
+        <a href="https://www.example.com" target="_blank">Link with target
+            attribute</a><br>
+        <a href="https://www.example.com" target1="_blank">Another link with
+            target attribute</a>
+        <div>
+            <h1 class="title">Title</h1>
+            <h2 class="title">Title</h2>
+        </div>
+
+        <button onclick="makeChanges()">Change</button>
+
+        <script>
+        function makeChanges() {     
+            var firstline = document.querySelector('.example');
+            var secondline = document.querySelector('.example1');
+
+            var link = document.querySelector('a[target]');
+            var link1 = document.querySelector('a[target1]');
+            var titlen=document.querySelectorAll('.title');
+
+            firstline.style.backgroundColor = 'yellow';
+            secondline.style.backgroundColor = 'lightblue';
+            firstline.style.border = '2px solid green';
+            secondline.style.border= '2px solid green';
+            firstline.style.color = 'green';
+            secondline.style.color = 'green';
+            link.style.border = '2px solid red';
+            link.style.color = 'blue';
+            link1.style.border = '2px solid red';        
+            titlen[0].style.color='yellow'; 
+            titlen[1].style.color='yellow'; 
+ 
+        }
+    </script>
+    </body>
+</html>

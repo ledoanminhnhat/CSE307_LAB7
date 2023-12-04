@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Registration form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" cellpadding="5" cellspacing="1" >
+
+            <form id="myForm" onsubmit="return validateForm()">
+            <tr class="1">
+                <th for="name">Fullname*</th>
+                <td colspan="6"><input type="text" id="name" name="name" onchange="validateName()">
+                <span id="nameError" class="error"></span>
+                
+            </tr>
+
+        
+
+            <tr class="2">
+                <th>Email*</th>
+                <td colspan="6">
+                    <input type="email" id="email" name="email" onchange="validateEmail()">
+                    <span id="emailError" class="error"></span>
+             </td>
+            </tr>
+
+            <tr class="3">
+                <th>Passwork*</th>
+                <td colspan="6"><input type="password" id="pass" name="pass" onchange="validatePasswork()">
+                    <span id="passError" class="error"></span></td>
+            </tr>
+
+            <tr class="4">
+                <th>Confirm Passwork*</th>
+                <td colspan="6"><input type="password" id="confirmPassword" name="confirmPassword">
+                    <span id="confirmPasswordError" class="error"></span> </td>
+            </tr>
+
+            <tr class="5">
+                <th>Phone Number*</th>
+                <td colspan="6"><input type="text" id="Phone" value="0967521271"> </td>
+            </tr>
+
+            <tr class="6">
+                <th >Address*</th>
+                <td colspan="6"><input type="text" id="address" placeholder="Room 414 ,B11,School of CIT , EIU"> </td>
+            </tr>
+
+            <tr class="7">
+                <th>City</th>
+                <td colspan="3">
+                    <input type="text" placeholder="Enter your City">
+                    
+                </td>
+                <th>State</th>
+                    <td colspan="3"><input type="text" placeholder="Enter your State"></td>
+            </tr>
+
+            <tr class="8">
+                <th>Zip/Postal Code</th>
+                <td colspan="6"><input type="text" placeholder="Enter your Zip/Postal Code"></td>
+            </tr>
+
+            <tr class="9">
+                <th>Country</th>
+                <td colspan="6"> 
+                <select name="Country" >
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="US">US</option>
+                    <option value="UK">England</option>
+                </select></td>
+            </tr>
+
+            <tr class="10">
+                <th>Birthday</th>
+                <td colspan="6">
+                    <input type="date" name="">
+                </td>
+            </tr>
+
+            <tr class="11">
+                <th>Gender</th>
+                <td colspan="6">
+                    <select name="Gender" id="">
+                        <option value="Male">Male</option>
+                        <option value="Male">Female</option>
+                        <option value="Male">Other</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr class="12">
+                <th>Starting Date</th>
+                <td colspan="6">
+                    <input type="radio" name="Title" value="Spring">
+                    <label for="Spring">Spring</label>
+                    <input type="radio" name="Title" value="Summer"checked/>
+                    <label for="Summer">Summer</label>
+                </td>
+                
+            </tr>
+
+            <tr class="13">
+                <th>Comment</th>
+                <td><input type="text" placeholder="Please send us more information"></td>
+                
+            </tr>
+
+            <tr class="14">
+                <th colspan="9" rowspan="3" ><input type="submit" value="Submit"></th>
+            </tr>
+        </form>
+        </table>
+       
+        <script>
+            function validateForm(){
+                validateName();
+                validateEmail();
+                validatePasswork();
+                validateConfirm(document.getElementById('pass'));
+                
+                var errorMessages = document.querySelectorAll('.error');
+                for (var i = 0; i < errorMessages.length; i++) {
+                if (errorMessages[i].textContent !== '') {
+                    return false;
+                }
+            }
+            alert('Form submitted successfully!');
+            return true;
+        }
+        function validateName() {
+            var nameInput = document.getElementById('name');
+            var nameError = document.getElementById('nameError');
+
+            // Reset error message
+            nameError.textContent = '';
+
+            // Validate Name
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Please input your name.';
+            }
+        }
+        function validateEmail() {
+            var emailInput = document.getElementById('email');
+            var emailError = document.getElementById('emailError');
+
+            // Reset error message
+            emailError.textContent = '';
+
+            // Validate Email
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.textContent = 'Please input your email.';
+            }
+        }
+        function validatePasswork(){
+            var passInput=document.getElementById('pass');
+            var passError=document.getElementById('passError');
+            
+            passError.textContent='';
+
+
+            if(passInput.value.length<6 ){
+                passError.textContent='Please input your passwork (min-length=6)'
+                return false;
+            }
+            alert('Form submitted successfully!');
+            return true;
+        
+        }
+
+        function validateConfirm(passInput){
+            var confirmPasswordInput = document.getElementById('confirmPassword');
+            var confirmPasswordError = document.getElementById('confirmPasswordError');
+
+            confirmPasswordError.textContent='';
+
+            if (confirmPasswordInput.value !== passInput.value) {
+                confirmPasswordError.textContent = 'Passwords do not match.';
+                return false;
+            }
+
+            alert('Form submitted successfully!');
+            return true;
+        
+        }
+
+            
+            
+        </script>
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
